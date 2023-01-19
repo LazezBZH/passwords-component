@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import "./Form.css";
 
-export default function Form() {
+export default function Form(props) {
   const [number, setNumber] = useState();
   const [mustHaveUpper, setMustHaveUpper] = useState(false);
   const [mustHaveLower, setMustHaveLower] = useState(false);
@@ -405,23 +406,28 @@ export default function Form() {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="passwordLength">Longueur souhaitée (mini 4):</label>
+    <div className="container" id="container">
+      <form className="myForm" id="myForm" onSubmit={handleSubmit}>
+        <label className="lengthLabel" id="lengthLabel" htmlFor="lengthInput">
+          Longueur souhaitée (mini 4):
+        </label>
         <input
           type="number"
           min="4"
-          name="passwordLength"
-          id="passwordLength"
+          name="lengthInput"
+          id="lengthInput"
+          className="lengthInput"
           placeholder="taille"
           value={number}
           onChange={(e) => {
             setNumber(e.target.value);
           }}
         />
-        <fieldset id="fieldset">
-          <legend>Caractères souhaités: </legend>
-          <div>
+        <fieldset className="fieldset" id="fieldset">
+          <legend className="fieldsetLegend" id="fieldsetLegend">
+            Caractères souhaités:{" "}
+          </legend>
+          <div className="fieldsetDiv" id="fieldsetDiv1">
             <input
               type="checkbox"
               id="mustHaveUpper"
@@ -430,9 +436,15 @@ export default function Form() {
               checked={mustHaveUpper}
               onChange={(e) => setMustHaveUpper(e.target.checked)}
             />
-            <label htmlFor="mustHaveUpper">Majuscules</label>
+            <label
+              htmlFor="mustHaveUpper"
+              className="chartLabel"
+              id="chartLabelUpper"
+            >
+              Majuscules
+            </label>
           </div>
-          <div>
+          <div className="fieldsetDiv" id="fieldsetDiv2">
             <input
               type="checkbox"
               id="mustHaveLower"
@@ -441,9 +453,15 @@ export default function Form() {
               checked={mustHaveLower}
               onChange={(e) => setMustHaveLower(e.target.checked)}
             />
-            <label htmlFor="mustHaveLower">Minuscules</label>
+            <label
+              htmlFor="mustHaveLower"
+              className="chartLabel"
+              id="chartLabelLower"
+            >
+              Minuscules
+            </label>
           </div>
-          <div>
+          <div className="fieldsetDiv" id="fieldsetDiv3">
             <input
               type="checkbox"
               id="mustHaveNumber"
@@ -452,9 +470,15 @@ export default function Form() {
               checked={mustHaveNumber}
               onChange={(e) => setMustHaveNumber(e.target.checked)}
             />
-            <label htmlFor="mustHaveNumber">Chiffres</label>
+            <label
+              htmlFor="mustHaveNumber"
+              className="chartLabel"
+              id="chartLabelNumber"
+            >
+              Chiffres
+            </label>
           </div>
-          <div>
+          <div className="fieldsetDiv" id="fieldsetDiv4">
             <input
               type="checkbox"
               id="mustHaveOther"
@@ -463,23 +487,65 @@ export default function Form() {
               checked={mustHaveOther}
               onChange={(e) => setMustHaveOther(e.target.checked)}
             />
-            <label htmlFor="mustHaveOther">Caractères spéciaux</label>
+            <label
+              htmlFor="mustHaveOther"
+              className="chartLabel"
+              id="chartLabelOther"
+            >
+              Caractères spéciaux
+            </label>
           </div>
         </fieldset>
-        {/* <button>Send</button>{" "} */}
-        <input type="submit" value="Générer" />
-        <input type="button" value="Raffraîchir" onClick={resetAll} />
-
-        <p> {errorMessage} </p>
-      </form>
-      {passwordReturned && (
-        <p>
-          Votre mot de passe de {passLenght} {""}
-          caractères avec {choice} est:
+        <p className="errorTxt" id="errorTxt">
+          {" "}
+          {errorMessage}{" "}
         </p>
-      )}
-      <input type="text" value={passwordReturned} />{" "}
-      <input type="button" value="Copier" onClick={copy} />
-    </>
+        <div className="inputs" id="inputs">
+          <input className="submit" id="submit" type="submit" value="Générer" />
+          <input
+            className="refresh"
+            id="refresh"
+            type="button"
+            value="Rafraîchir"
+            onClick={resetAll}
+          />
+        </div>
+      </form>
+      <div className="message" id="message">
+        {" "}
+        {passwordReturned && (
+          <p className="message2" id="message2">
+            Votre mot de passe de{" "}
+            <span className="strong" id="strong1">
+              {passLenght}
+            </span>{" "}
+            {""}
+            caractères avec{" "}
+            <span className="strong" id="strong2">
+              {choice}
+            </span>{" "}
+            est:
+          </p>
+        )}
+        {!passwordReturned && (
+          <p className="message1" id="message1">
+            Le mot de passe généré s'affichera ci-dessous.
+          </p>
+        )}
+      </div>
+      <input
+        type="text"
+        value={passwordReturned}
+        className="passwordReturned"
+        id="passwordReturned"
+      />{" "}
+      <input
+        type="button"
+        value="Copier"
+        onClick={copy}
+        className="copy"
+        id="copy"
+      />
+    </div>
   );
 }
