@@ -1,13 +1,24 @@
 .container {
-  background-color: rgb(133, 133, 133);
-  border: solid 3px rgb(63, 63, 63);
+  background-color: whitesmoke;
+  border: solid 3px #272727;
   padding: 1rem;
   max-width: 16rem;
   margin: 1rem auto;
 }
+.title {
+  display: flex;
+  justify-content: center;
+}
+.title h1 {
+  width: 90%;
+  font-size: 1rem;
+  text-align: center;
+  border: solid 1px black;
+}
+
 .myForm {
-  background-color: rgb(254, 243, 223);
-  border: solid 3px rgb(173, 119, 18);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: solid 3px rgba(154, 59, 25, 0.7);
   border-radius: 1%;
   padding: 0.1rem;
 }
@@ -28,19 +39,50 @@
   font-weight: bold;
 }
 .fieldsetDiv {
-  color: rgb(57, 57, 57);
+  color: #272727;
 }
-.fieldsetDiv input {
-}
-.fieldsetDiv label {
-}
-.errorTxt {
+/* .fieldsetDiv input {
+} */
+/* .fieldsetDiv label {
+} */
+.messages {
   font-size: 0.6rem;
-  height: 1.3rem;
-  color: red;
-  margin: 0.2rem auto 0 auto;
+  height: 1.8rem;
+  font-weight: bold;
+  margin: 0 auto 0 auto;
   width: 80%;
   text-align: center;
+  padding: auto;
+}
+.inviteTxt {
+  transform: scale(1.4);
+  padding: 0 1rem;
+  color: #185d41;
+}
+.errorTxt {
+  color: red;
+  transform: scale(1.3);
+  animation-duration: 1.5s;
+  animation-name: clign;
+  animation-iteration-count: infinite;
+  transition: none;
+}
+.errorTxt:hover {
+  animation-duration: 0.3s;
+  animation-name: clign;
+  animation-iteration-count: infinite;
+  transition: none;
+}
+@keyframes clign {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .inputs {
   display: flex;
@@ -49,17 +91,17 @@
   margin-bottom: 1.3rem;
 }
 .submit {
-  color: blue;
+  color: #185d41;
+  border: solid 2px #185d41;
   font-weight: bold;
   background-color: whitesmoke;
-  border: solid 2px blue;
   border-radius: 5px;
 }
 .refresh {
-  color: red;
+  color: #272727;
   font-weight: bold;
   background-color: whitesmoke;
-  border: solid 2px red;
+  border: solid 2px #272727;
   border-radius: 5px;
 }
 .message {
@@ -68,6 +110,7 @@
   vertical-align: middle;
   justify-content: center;
   margin: auto;
+  color: #424242;
 }
 .message1 {
   font-size: 0.75rem;
@@ -80,11 +123,13 @@
   text-align: center;
 }
 .passwordReturned {
+  color: rgb(154, 59, 25);
+  font-weight: bolder;
 }
 .copy {
-  color: green;
+  color: rgb(154, 59, 25);
+  border: solid 2px rgb(154, 59, 25);
   font-weight: bold;
   background-color: whitesmoke;
-  border: solid 2px green;
   border-radius: 5px;
 }

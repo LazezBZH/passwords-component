@@ -49,7 +49,26 @@ export default function Form(props) {
     setMustHaveNumber("");
     setMustHaveOther("");
   }
-
+  function onChangeLength(e) {
+    setErrorMessage("");
+    setNumber(e.target.value);
+  }
+  function onChangeUpper(e) {
+    setErrorMessage("");
+    setMustHaveUpper(e.target.checked);
+  }
+  function onChangeLower(e) {
+    setErrorMessage("");
+    setMustHaveLower(e.target.checked);
+  }
+  function onChangeNumber(e) {
+    setErrorMessage("");
+    setMustHaveNumber(e.target.checked);
+  }
+  function onChangeOther(e) {
+    setErrorMessage("");
+    setMustHaveOther(e.target.checked);
+  }
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -407,6 +426,9 @@ export default function Form(props) {
 
   return (
     <div className="container" id="container">
+      <div className="title" id="title">
+        <h1>Générateur de mot de passe</h1>
+      </div>
       <form className="myForm" id="myForm" onSubmit={handleSubmit}>
         <label className="lengthLabel" id="lengthLabel" htmlFor="lengthInput">
           Longueur souhaitée (mini 4):
@@ -419,9 +441,7 @@ export default function Form(props) {
           className="lengthInput"
           placeholder="taille"
           value={number}
-          onChange={(e) => {
-            setNumber(e.target.value);
-          }}
+          onChange={onChangeLength}
         />
         <fieldset className="fieldset" id="fieldset">
           <legend className="fieldsetLegend" id="fieldsetLegend">
@@ -434,7 +454,7 @@ export default function Form(props) {
               name="mustHaveUpper"
               className="checkbox"
               checked={mustHaveUpper}
-              onChange={(e) => setMustHaveUpper(e.target.checked)}
+              onChange={onChangeUpper}
             />
             <label
               htmlFor="mustHaveUpper"
@@ -451,7 +471,7 @@ export default function Form(props) {
               name="mustHaveLower"
               className="checkbox"
               checked={mustHaveLower}
-              onChange={(e) => setMustHaveLower(e.target.checked)}
+              onChange={onChangeLower}
             />
             <label
               htmlFor="mustHaveLower"
@@ -468,7 +488,7 @@ export default function Form(props) {
               name="mustHaveNumber"
               className="checkbox"
               checked={mustHaveNumber}
-              onChange={(e) => setMustHaveNumber(e.target.checked)}
+              onChange={onChangeNumber}
             />
             <label
               htmlFor="mustHaveNumber"
@@ -485,7 +505,7 @@ export default function Form(props) {
               name="mustHaveOther"
               className="checkbox"
               checked={mustHaveOther}
-              onChange={(e) => setMustHaveOther(e.target.checked)}
+              onChange={onChangeOther}
             />
             <label
               htmlFor="mustHaveOther"
@@ -496,10 +516,21 @@ export default function Form(props) {
             </label>
           </div>
         </fieldset>
-        <p className="errorTxt" id="errorTxt">
-          {" "}
-          {errorMessage}{" "}
-        </p>
+        <div className="messages" id="messages">
+          {!errorMessage && !passwordReturned && (
+            <p className="inviteTxt" id="inviteTxt">
+              Entrez vos critères afin de générer un mot de passe
+            </p>
+          )}
+          {!errorMessage && passwordReturned && (
+            <p className="inviteTxt" id="inviteTxt">
+              Entrez vos critères afin de générer un nouveau mot de passe
+            </p>
+          )}
+          <p className="errorTxt" id="errorTxt">
+            {errorMessage}
+          </p>
+        </div>
         <div className="inputs" id="inputs">
           <input className="submit" id="submit" type="submit" value="Générer" />
           <input
@@ -511,28 +542,31 @@ export default function Form(props) {
           />
         </div>
       </form>
-      <div className="message" id="message">
+      <label htmlFor="passwordReturned">
         {" "}
-        {passwordReturned && (
-          <p className="message2" id="message2">
-            Votre mot de passe de{" "}
-            <span className="strong" id="strong1">
-              {passLenght}
-            </span>{" "}
-            {""}
-            caractères avec{" "}
-            <span className="strong" id="strong2">
-              {choice}
-            </span>{" "}
-            est:
-          </p>
-        )}
-        {!passwordReturned && (
-          <p className="message1" id="message1">
-            Le mot de passe généré s'affichera ci-dessous.
-          </p>
-        )}
-      </div>
+        <div className="message" id="message">
+          {" "}
+          {passwordReturned && (
+            <p className="message2" id="message2">
+              Votre mot de passe de{" "}
+              <span className="strong" id="strong1">
+                {passLenght}
+              </span>{" "}
+              {""}
+              caractères avec{" "}
+              <span className="strong" id="strong2">
+                {choice}
+              </span>{" "}
+              est:
+            </p>
+          )}
+          {!passwordReturned && (
+            <p className="message1" id="message1">
+              Le mot de passe généré s'affichera ci-dessous.
+            </p>
+          )}
+        </div>
+      </label>
       <input
         type="text"
         value={passwordReturned}
