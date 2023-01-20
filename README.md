@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# A password generator React component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
 
-## Available Scripts
+Simple component for React project.
+Keep the default theme or chose yours simply changing CSS.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+You can install this component with npm or yarn:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    npm i password-generator-by-lazez
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+or
 
-### `npm test`
+    yarn add password-generator-by-lazez
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+caution
 
-### `npm run build`
+    You'll perhaps have to do npm start or yarn start again
+    so that it works in your project (it'll be opened in another port then)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**NPM link**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[password generator by lazez on NPM](https://www.npmjs.com/package/password-generator-by-lazez)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Use in your React project
 
-### `npm run eject`
+Import the generator component into the file
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    import { Generator } from password-generator-by-lazez
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## See how it works
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[exemple deployed](https://password-generator-by-lazez.netlify.app/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Screenshots
 
-## Learn More
+![demo1](https://raw.githubusercontent.com//LazezBZH/passwords-component/master/src/docs/password1.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![demo2](https://raw.githubusercontent.com//LazezBZH/passwords-component/master/src/docs/password2.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![demo2](https://raw.githubusercontent.com//LazezBZH/passwords-component/master/src/docs/password2.png)
 
-### Code Splitting
+## Example ( in a React project)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**App.js**
 
-### Analyzing the Bundle Size
+```js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+import "./App.css";
+import { Generator } from "password-generator-by-lazez";
 
-### Making a Progressive Web App
+function App() {
+  return (
+    <div className="App">
+        <Generator />
+    </div>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**CSS**
 
-### Advanced Configuration
+I use className for my CSS.
+If you want to set your own design the easiest way is to use the IDs which will have priority.
+Each element has same id and class (or almost)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| **Elements** |                                                               |                                         |                            |                           | **ClassName**         | **id**                |
+| ------------ | ------------------------------------------------------------- | --------------------------------------- | -------------------------- | ------------------------- | --------------------- | --------------------- |
+| _All (div)_  |                                                               |                                         |                            |                           | container             | container             |
+|              | _div (contains h1)_                                           |                                         |                            |                           | title                 | title                 |
+|              | _form (choices, invite or error msg, submit and refresh btn)_ |                                         |                            |                           | myForm                | myForm                |
+|              |                                                               | _label (for chose length)_              |                            |                           | lengthLabel           | lengthLabel           |
+|              |                                                               | _input (to chose length)_               |                            |                           | lengthInput           | lengthInput           |
+|              | _fieldset ( contains checkbox for charts)_                    |                                         |                            |                           | fieldset              | fieldset              |
+|              |                                                               | _fieldset legend_                       |                            |                           | fieldsetLegend        | fieldsetLegend        |
+|              |                                                               | _div (for uppercharts checkbox)_        |                            |                           | fieldsetdiv           | fieldsetDivUpper      |
+|              |                                                               |                                         | _uppercharts input_        |                           | checkbox              | mustHaveUpper         |
+|              |                                                               |                                         | _uppercharts label_        |                           | chartLabel            | chartlabelUpper       |
+|              |                                                               | _div (for lowercharts checkbox)_        |                            |                           | fieldsetdiv           | fieldsetDivLower      |
+|              |                                                               |                                         | _lowercharts input_        |                           | checkbox              | mustHaveLower         |
+|              |                                                               |                                         | _lowercharts label_        |                           | chartLabel            | chartlabelLower       |
+|              |                                                               | _div (for numbercharts checkbox)_       |                            |                           | fieldsetdiv           | fieldsetDivNumber     |
+|              |                                                               |                                         | _numbercharts input_       |                           | checkbox              | mustHaveNumber        |
+|              |                                                               |                                         | _numbercharts label_       |                           | chartLabel            | chartlabelNumber      |
+|              |                                                               | _div (for othercharts checkbox)_        |                            |                           | fieldsetdiv           | fieldsetDivOther      |
+|              |                                                               |                                         | _othercharts input_        |                           | checkbox              | mustHaveOther         |
+|              |                                                               |                                         | _othercharts label_        |                           | chartLabel            | chartlabelOther       |
+|              | _div (invite msg)_                                            |                                         |                            |                           | messages              | messages              |
+|              |                                                               | _p invite msg_                          |                            |                           | inviteTxt             | inviteTxt             |
+|              |                                                               | _p invite msg new_                      |                            |                           | inviteTxtNew          | inviteTxtNew          |
+|              |                                                               | _p error msg_                           |                            |                           | errorTxt              | errorTxt              |
+|              | _div contains submit and refresh btn_                         |                                         |                            |                           | inputs                | inputs                |
+|              |                                                               | _input submit_                          |                            |                           | submit                | submit                |
+|              |                                                               | _input type button to refresh_          |                            |                           | refresh               | refresh               |
+|              | _label (for output passwordReturned)_                         |                                         |                            |                           | passwordReturnedLabel | passwordReturnedLabel |
+|              |                                                               | _div (contains message when generated)_ |                            |                           | messageGenerated      | messageGenerated      |
+|              |                                                               |                                         | _p msg after generate_     |                           | messageAfter          | messageAfter          |
+|              |                                                               |                                         |                            | _span with chosen length_ | chosenGenerated       | chosenLengthGenerated |
+|              |                                                               |                                         |                            | _span with chosen charts_ | chosenGenerated       | chosenChartsGenerated |
+|              |                                                               |                                         | _p message befor generate_ |                           | messageBefore         | messageBefore         |
+|              | _input text(output of generate)_                              |                                         |                            |                           | passwordReturned      | passwordReturned      |
+|              | _input button (copy)_                                         |                                         |                            |                           | copy                  | copy                  |

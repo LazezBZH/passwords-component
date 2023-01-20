@@ -1,10 +1,11 @@
 import React from "react";
-import Form from "./Form";
+import Generator from "./lib/components/Generator";
+import "./App.css";
 
 export default function App() {
   return (
-    <div>
-      <Form />
+    <div className="App" id="App">
+      <Generator />
     </div>
   );
 }

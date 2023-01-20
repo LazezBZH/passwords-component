@@ -1,9 +1,9 @@
 .container {
   background-color: whitesmoke;
-  border: solid 3px #272727;
-  padding: 1rem;
+  border: outset 10px #444444;
+  padding: 0 1rem 1rem 1rem;
   max-width: 16rem;
-  margin: 1rem auto;
+  margin: auto;
 }
 .title {
   display: flex;
@@ -13,7 +13,9 @@
   width: 90%;
   font-size: 1rem;
   text-align: center;
-  border: solid 1px black;
+  border: solid 3px rgb(154, 59, 25);
+  -webkit-box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.5);
 }
 
 .myForm {
@@ -41,10 +43,6 @@
 .fieldsetDiv {
   color: #272727;
 }
-/* .fieldsetDiv input {
-} */
-/* .fieldsetDiv label {
-} */
 .messages {
   font-size: 0.6rem;
   height: 1.8rem;
@@ -104,7 +102,7 @@
   border: solid 2px #272727;
   border-radius: 5px;
 }
-.message {
+.messageGenerated {
   height: 4.5rem;
   display: flex;
   vertical-align: middle;
@@ -112,15 +110,19 @@
   margin: auto;
   color: #424242;
 }
-.message1 {
+.messageBefore {
   font-size: 0.75rem;
   margin: auto;
   text-align: center;
 }
-.message2 {
+.messageAfter {
   font-size: 0.75rem;
   margin: auto;
   text-align: center;
+}
+.chosenGenerated {
+  color: rgb(154, 59, 25);
+  font-weight: bold;
 }
 .passwordReturned {
   color: rgb(154, 59, 25);

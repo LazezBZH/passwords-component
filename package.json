@@ -1,8 +1,27 @@
 {
-  "name": "passwords-component",
+  "name": "password-generator-by-lazez",
+  "description": "Password generator component for React project",
+  "author": "Lazez BZH",
+  "keywords": [
+    "react",
+    "components",
+    "password",
+    "mot de passe"
+  ],
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LazezBZH/passwords-component"
+  },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -14,6 +33,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build-lib": "set NODE_ENV=production rimraf dist && babel src/lib --out-dir dist --copy-files",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -35,5 +55,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2"
   }
 }

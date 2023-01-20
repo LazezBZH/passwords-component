@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import "./Form.css";
+import "./Generator.css";
 
-export default function Form(props) {
+export default function Generator(props) {
   const [number, setNumber] = useState();
   const [mustHaveUpper, setMustHaveUpper] = useState(false);
   const [mustHaveLower, setMustHaveLower] = useState(false);
@@ -447,7 +447,7 @@ export default function Form(props) {
           <legend className="fieldsetLegend" id="fieldsetLegend">
             Caractères souhaités:{" "}
           </legend>
-          <div className="fieldsetDiv" id="fieldsetDiv1">
+          <div className="fieldsetDiv" id="fieldsetDivUpper">
             <input
               type="checkbox"
               id="mustHaveUpper"
@@ -464,7 +464,7 @@ export default function Form(props) {
               Majuscules
             </label>
           </div>
-          <div className="fieldsetDiv" id="fieldsetDiv2">
+          <div className="fieldsetDiv" id="fieldsetDivLower">
             <input
               type="checkbox"
               id="mustHaveLower"
@@ -481,7 +481,7 @@ export default function Form(props) {
               Minuscules
             </label>
           </div>
-          <div className="fieldsetDiv" id="fieldsetDiv3">
+          <div className="fieldsetDiv" id="fieldsetDivNumber">
             <input
               type="checkbox"
               id="mustHaveNumber"
@@ -498,7 +498,7 @@ export default function Form(props) {
               Chiffres
             </label>
           </div>
-          <div className="fieldsetDiv" id="fieldsetDiv4">
+          <div className="fieldsetDiv" id="fieldsetDivOther">
             <input
               type="checkbox"
               id="mustHaveOther"
@@ -523,7 +523,7 @@ export default function Form(props) {
             </p>
           )}
           {!errorMessage && passwordReturned && (
-            <p className="inviteTxt" id="inviteTxt">
+            <p className="inviteTxt" id="inviteTxtNew">
               Entrez vos critères afin de générer un nouveau mot de passe
             </p>
           )}
@@ -542,26 +542,30 @@ export default function Form(props) {
           />
         </div>
       </form>
-      <label htmlFor="passwordReturned">
+      <label
+        htmlFor="passwordReturned"
+        className="passwordReturnedLabel"
+        id="passwordReturnedLabel"
+      >
         {" "}
-        <div className="message" id="message">
+        <div className="messageGenerated" id="messageGenerated">
           {" "}
           {passwordReturned && (
-            <p className="message2" id="message2">
+            <p className="messageAfter" id="messageAfter">
               Votre mot de passe de{" "}
-              <span className="strong" id="strong1">
+              <span className="chosenGenerated" id="chosenLengthGenerated">
                 {passLenght}
               </span>{" "}
               {""}
               caractères avec{" "}
-              <span className="strong" id="strong2">
+              <span className="chosenGenerated" id="chosenchartsGenerated">
                 {choice}
               </span>{" "}
               est:
             </p>
           )}
           {!passwordReturned && (
-            <p className="message1" id="message1">
+            <p className="messageBefore" id="messageBefore">
               Le mot de passe généré s'affichera ci-dessous.
             </p>
           )}
