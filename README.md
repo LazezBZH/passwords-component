@@ -28,7 +28,7 @@ caution
 
 Import the generator component into the file
 
-    import { Generator } from password-generator-by-lazez
+    import { Generator } from password-generator-by-lazez;
 
 ## See how it works
 
@@ -47,15 +47,16 @@ Import the generator component into the file
 **App.js**
 
 ```js
-
 import "./App.css";
 import { Generator } from "password-generator-by-lazez";
 
 function App() {
   return (
     <div className="App">
-        <Generator />
+      <Generator />
     </div>
+  );
+}
 ```
 
 **CSS**

@@ -1,3 +1,3 @@
-import Modal from "./components/Generator";
+import Generator from "./components/Generator";
 
-export { Modal };
+export { Generator };
